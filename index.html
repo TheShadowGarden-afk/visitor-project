@@ -3,12 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visitor Info</title>
+    <title>Visitor Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+        }
+        .box {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            margin: auto;
+            width: 340px;
+        }
+        h1 { color: #4CAF50; }
+        .info { font-size: 18px; margin-top: 10px; }
+    </style>
 </head>
 <body>
-    <h1>Visitor Information</h1>
-    <div id="info"></div>
+
+    <h1>Visitor Analytics</h1>
+    <div class="box">
+        <div class="info">Total Visits: <span id="totalVisits">Loading...</span></div>
+        <div class="info">Unique Visitors: <span id="uniqueVisitors">Loading...</span></div>
+        <div class="info">Your Visits: <span id="yourVisits">Loading...</span></div>
+        <div class="info">Your Device: <span id="deviceInfo">Loading...</span></div>
+        <div class="info">Last Visit: <span id="lastVisit">Loading...</span></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
