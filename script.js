@@ -1,30 +1,22 @@
-async function getVisitorData() {
-    const response = await fetch("https://ipapi.co/json/");
-    const data = await response.json();
+const API_URL = "https://visitor-project-pqvi.onrender.com/visit"; 
 
-    const infoDiv = document.getElementById("info");
+async function loadVisitorData() {
+    try {
+        // Send request to backend
+        const response = await fetch(API_URL);
+        const data = await response.json();
 
-    infoDiv.innerHTML = `
-        <p><strong>IP Address:</strong> ${data.ip}</p>
-        <p><strong>City:</strong> ${data.city}</p>
-        <p><strong>Region:</strong> ${data.region}</p>
-        <p><strong>Country:</strong> ${data.country_name}</p>
-        <p><strong>Latitude:</strong> ${data.latitude}</p>
-        <p><strong>Longitude:</strong> ${data.longitude}</p>
-        <p><strong>ISP:</strong> ${data.org}</p>
-        <p><strong>Timezone:</strong> ${data.timezone}</p>
-        <p><strong>Postal Code:</strong> ${data.postal}</p>
-        <p><strong>Browser:</strong> ${navigator.userAgent}</p>
-        <p><strong>Language:</strong> ${navigator.language}</p>
-        <p><strong>Device Online:</strong> ${navigator.onLine}</p>
-        <p><strong>Battery Level:</strong> <span id="batteryLevel">Loading...</span></p>
-    `;
+        // Fill values
+        document.getElementById("totalVisits").textContent = data.totalVisits;
+        document.getElementById("uniqueVisitors").textContent = data.uniqueVisitors;
+        document.getElementById("yourVisits").textContent = data.yourVisits;
+        document.getElementById("deviceInfo").textContent = data.device;
+        document.getElementById("lastVisit").textContent = data.lastVisit;
 
-    // Battery API
-    navigator.getBattery().then(function(battery) {
-        document.getElementById("batteryLevel").innerText =
-            Math.round(battery.level * 100) + "%";
-    });
+    } catch (error) {
+        console.log("Error loading visitor data:", error);
+    }
 }
 
-getVisitorData();
+loadVisitorData();
+
