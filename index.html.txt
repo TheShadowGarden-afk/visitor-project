@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visitor Information</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background: #f2f2f2;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Visitor Information</h1>
+<pre id="info">Loading...</pre>
+
+<script src="script.js"></script>
+
+</body>
+</html>
